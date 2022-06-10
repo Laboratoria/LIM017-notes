@@ -1,9 +1,9 @@
 //import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Welcome } from './components/Welcome';
+import { Welcome } from '../src/components/Welcome/Welcome';
 import { Register } from './components/Register';
 import { Login } from './components/Login';
-import { Home } from './components/Home';
+import { Home } from '../src/components/Home/Home';
 
 function App() {
   return (
