@@ -1,9 +1,12 @@
+import './Register.css'
+
+
 export function Register () {
 
-//aqui tengo fun
+    //aqui tengo fun
 
         return <div>
-                <section><h2>YUYARINAPAQ</h2></section>
+                <section><h2 className="titleMain">YUYARINAPAQ</h2></section>
                 <section className="textContainer">
                     <h3 className="textRegister">Registro</h3>
                     <form>

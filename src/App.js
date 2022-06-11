@@ -1,12 +1,14 @@
-//import './App.css';
+/* import './App.css'; */
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Welcome } from '../src/components/Welcome/Welcome';
-import { Register } from './components/Register';
-import { Login } from './components/Login';
+import { Register } from '../src/components/Register/Register';
+import { Login } from '../src/components/Login/Login';
 import { Home } from '../src/components/Home/Home';
+import {AuthProvider} from '../src/context/authContext';
 
 function App() {
   return (
+    <AuthProvider>
       <BrowserRouter>
         <Routes>
 
@@ -16,6 +18,7 @@ function App() {
         <Route path="/home" element={<Home/>} />
       </Routes>
       </BrowserRouter>
+      </AuthProvider>
     );
   }
 

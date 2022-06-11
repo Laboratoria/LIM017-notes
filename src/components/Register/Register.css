@@ -1,0 +1,17 @@
+.titleMain {
+    text-align: center;
+}
+.textContainer {
+    background-color: rgb(122, 233, 222);
+}
+h3 {
+    text-align: center;
+    font-family:  Comic Sans MS;
+    font-weight:bold; 
+    font-size: 30px; 
+    margin:5px;
+    color:  #030303 ; 
+    text-shadow:  #70BF5A ; 
+    text-shadow: -1px 0 #59AFCA, 0 1px #59AFCA, 1px 0 #59AFCA, 0 -1px #59AFCA, -1px 1px 0 #59AFCA, 1px 1px 0 #59AFCA, 1px 1px #59AFCA, 1px 1px #59AFCA, 2px 2px #59AFCA, 2px 2px #59AFCA, 2px 2px #59AFCA;
+
+}
