@@ -1,6 +1,7 @@
 import './Register.css'
 import { useState } from 'react';
 import { useAuth } from '../../context/authContext';
+import { useNavigate } from 'react-router-dom';
  
 export function Register () {
     const [user, setUser] = useState ({
@@ -10,13 +11,38 @@ export function Register () {
     });
 
    const {signup} = useAuth ()
+   const navigate = useNavigate()
+   const [error, setError] = useState();
 
     const handleChange = ({target: {name, value}}) =>
         setUser({...user, [name]: value});
 
-    const handleSubmit = e => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        signup(user.email, user.password)
+        setError('')
+        try {
+        await signup(user.email, user.password)
+        navigate('/login')
+    } catch (error) {
+        console.log(error.code);
+        if (error.code === 'auth/invalid-email') {
+            setError('Correo Inválido')
+        }
+        if (error.code === "auth/weak-password") {
+            setError ('La contraseña debe tener como mínimo 6 carácteres')
+        }
+        if (error.code === "auth/email-already-in-use") {
+            setError ('El correo ya esta registrado')
+        }
+        /* setError(error.menssage); */
+       /*  switch (error.code) {
+            case 'error.code === "auth/internal-error"' : setError("Correo Inválido")/* ='El correo es obligatorio'; break;
+            case 'error.code === "auth/invalid-email"': setError ('Digite un correo válido'); break;
+            case 'error.code === "auth/email-already-in-use"': setError ('El correo electrónico proporcionado esta siendo utilizado por otro miembro, verifica e intente de nuevo.'); break;
+            default: return error.code;
+          }
+          return error.code; */
+        }
     }
 
         return <div>
@@ -26,21 +52,21 @@ export function Register () {
                     <h3 className="textRegister">Registro</h3>
                     <form onSubmit={handleSubmit}>
                     <label htmlFor="name">Nombre de usuario<br></br>
-                    <input type='text' id='createName' placeholder ='Ejm: Eli Chil' name ='nameUser' onchange={handleChange} />
+                    <input type='text' id='createName' placeholder ='Ejm: Eli Chil' name ='nameUser' onChange={handleChange} />
                     </label><br></br>
-                    <label htmlFor='inputEmail'>Email<br></br>
-                    <input type='email' id='createEmail' placeholder ='elichil@example.com' name ='email' onchange={handleChange} />
+                    <label htmlFor='email'>Email<br></br>
+                    <input type='email' id='createEmail' placeholder ='elichil@example.com' name ='email' onChange={handleChange} />
                     </label>
                     <p id='messageEmail'></p><br></br>
-                    <label htmlFor='namePassword'>Contraseña<br></br>
-                    <input type= 'password' id='createPassword' placeholder ='Mayor a 6 carácteres' name ='password' onchange={handleChange}/>
+                    <label htmlFor='password'>Contraseña<br></br>
+                    <input type= 'password' id='createPassword' placeholder ='Mayor a 6 carácteres' name ='password' onChange={handleChange}/>
                     </label>
-                    </form>
-                    {/* <p id='messagePassword'></p> */}
-                    <p id='messageVerificado'></p>
-                    <button id='buttonUserRegister'> Crear Ususario</button>
+                   {/* <p id='messagePassword'></p> */}
+                    {error && <p id='messageVerificado'>{error}</p>}
+                    <button id='buttonUserRegister' onChange={handleChange}> Crear Ususario</button>
                     <button id='buttonGoogle'> Iniciar con Google</button>
                     <button id='buttonBackHome'></button>
+                    </form>
                 </section>
             </section>
             </div>;
