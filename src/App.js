@@ -4,7 +4,7 @@ import { Welcome } from '../src/components/Welcome/Welcome';
 import { Register } from '../src/components/Register/Register';
 import { Login } from '../src/components/Login/Login';
 import { Home } from '../src/components/Home/Home';
-import {AuthProvider} from '../src/context/authContext';
+import { AuthProvider } from '../src/context/authContext';
 
 function App() {
   return (
