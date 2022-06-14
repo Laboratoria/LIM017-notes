@@ -17,8 +17,8 @@ export function Login () {
             <label htmlFor='nameEmail'>Email<br></br>
             <input type='text' id='loginEmail' placeholder ='Ejm:usuario@example.com' name ='nameEmail' required />
             </label><br></br>
-            <label htmlFor='namePassword'>Contraseña<br></br>
-            <input type= 'password' id='loginPassword' placeholder ='6 caracteres' name ='namePassword' required></input><br></br>
+            <label htmlFor='password'>Contraseña<br></br>
+            <input type= 'password' id='loginPassword' placeholder ='6 caracteres' name ='password' required></input><br></br>
             
             {/* <p id='messageEmail'></p> */}
             <p id='messagePassword'></p>
