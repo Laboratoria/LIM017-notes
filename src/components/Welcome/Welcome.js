@@ -5,9 +5,11 @@ import './Welcome.css'
 
 export function Welcome () {
     return <div>
-        <h1>YUYARINAPAQ</h1>
-        <Link to="/register">Ingresar</Link>
+        <section id="welcomePage">
+        <h1 className="title-main">YUYARINAPAQ</h1>
         <img src={logoWelcome} className="logo-welcome" />
+        <Link to="/register">Ingresar</Link>
+        </section>
     </div>;
 }
 /*  const getInto = () => {

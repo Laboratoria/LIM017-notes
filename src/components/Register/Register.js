@@ -1,4 +1,6 @@
+/* eslint-disable jsx-a11y/alt-text */
 import './Register.css'
+import laptop from '../../images/laptop.png';
 import { useState } from 'react';
 import { useAuth } from '../../context/authContext';
 import { useNavigate } from 'react-router-dom';
@@ -47,7 +49,10 @@ export function Register () {
 
         return <div>
             <section>
-                <section><h2 className="titleMain">YUYARINAPAQ</h2></section>
+                <section id="containerTitleImage">
+                    <h2 className="titleMain">YUYARINAPAQ</h2>
+                    <img src={laptop} className="laptop" />
+                </section>
                 <section className="textContainer">
                     <h3 className="textRegister">Registro</h3>
                     <form onSubmit={handleSubmit}>

@@ -1,35 +1,75 @@
 import './Login.css'
+import laptop from '../../images/laptop.png';
 import { useState } from 'react';
-
+import { useAuth } from '../../context/authContext';
+import { useNavigate } from 'react-router-dom';
+ 
 export function Login () {
-
-    /* const [user, setUser] = useState ({
+    const [user, setUser] = useState ({
         email: '',
-        password: ''
-    }) */
+        password: '',
+    });
 
-    return <div>
-        <section>
-            <h2 className="titleMain">YUYARINAPAQ</h2>
-        </section>
-        <section className='textContainer'>
-            <h3>Login</h3>
-            <label htmlFor='nameEmail'>Email<br></br>
-            <input type='text' id='loginEmail' placeholder ='Ejm:usuario@example.com' name ='nameEmail' required />
-            </label><br></br>
-            <label htmlFor='password'>Contraseña<br></br>
-            <input type= 'password' id='loginPassword' placeholder ='6 caracteres' name ='password' required></input><br></br>
-            
-            {/* <p id='messageEmail'></p> */}
-            <p id='messagePassword'></p>
-            <p id='errorCodeMessage'></p>
-            </label>
-            <button id='getInto'> Iniciar sesión</button>
-            <button id='buttonGoogle'>Iniciar con Google</button>
-            <div id='registerLink'>
-            <p>¿No tienes cuenta? <a href='/register'><span className='link-span'><strong>Regístrate</strong></span></a></p>
-            </div>
-            <button id='buttonBackHome' className='buttonHome'></button>
-        </section>
-    </div>;
+   const {login} = useAuth ()
+   const navigate = useNavigate()
+   const [error, setError] = useState();
+
+    const handleChange = ({target: {name, value}}) =>
+        setUser({...user, [name]: value});
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setError('')
+        try {
+        await login(user.email, user.password)
+        navigate('/home')
+    } catch (error) {
+        console.log(error.code);
+        if (error.code === 'auth/user-not-found') {
+            setError('No hay usuario registrado con ese correo.')
+        }
+        if (error.code === "auth/wrong-password") {
+            setError ('La contraseña no es válida, verifica e intente de nuevo.')
+        }
+        if (error.code === "auth/invalid-email") {
+            setError ('El correo ingresado es inválido')
+        }
+        /* setError(error.menssage); */
+       /*  switch (error.code) {
+            case 'error.code === "auth/internal-error"' : setError("Correo Inválido")/* ='El correo es obligatorio'; break;
+            case 'error.code === "auth/invalid-email"': setError ('Digite un correo válido'); break;
+            case 'error.code === "auth/email-already-in-use"': setError ('El correo electrónico proporcionado esta siendo utilizado por otro miembro, verifica e intente de nuevo.'); break;
+            default: return error.code;
+          }
+          return error.code; */
+        }
+    }
+
+        return <div>
+            <section>
+                <section id="containerTitleImage">
+                    <h2 className="titleMain">YUYARINAPAQ</h2>
+                    <img src={laptop} className="laptop" />
+                </section>
+                <section className="textContainer">
+                    <h3 className="textLogin">Login</h3>
+                    <form onSubmit={handleSubmit}>
+                    <label htmlFor='email'>Email<br></br>
+                    <input type='email' id='createEmail' placeholder ='elichil@example.com' name ='email' onChange={handleChange} />
+                    </label>
+                    <p id='messageEmail'></p><br></br>
+                    <label htmlFor='password'>Contraseña<br></br>
+                    <input type= 'password' id='createPassword' placeholder ='Mayor a 6 carácteres' name ='password' onChange={handleChange}/>
+                    </label>
+                   {/* <p id='messagePassword'></p> */}
+                    {error && <p id='messageVerificado'>{error}</p>}
+                    <button id='getInto' onChange={handleChange}> Iniciar sesión</button>
+                    <div id='registerLink'>
+                    <p>¿No tienes cuenta? <a href='/register'><span className='link-span'><strong>Regístrate</strong></span></a></p>
+                    </div>
+                    <button id='buttonBackHome' className='buttonHome'></button>
+                    </form>
+                </section>
+            </section>
+            </div>;
 }

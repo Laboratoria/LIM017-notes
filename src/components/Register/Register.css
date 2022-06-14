@@ -4,19 +4,30 @@ body {
     background: -webkit-linear-gradient(to right, #B06AB3, #4568DC);
     background: linear-gradient(to right, #B06AB3, #4568DC);
 }
+#containerTitleImage {
+    display: flex;
+    /* display:inline-block; */
+    flex-direction: row;
+    justify-content: center;
+}
 .titleMain {
     text-align: center;
 }
 h2 {
     text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-weight:bold; 
-    font-size: 40px; 
+    font-weight:bold;
+    font-size: 40px;
     margin:5px;
     margin-top: 30px;
-    color:  #030303 ; 
-    text-shadow:  #70BF5A ; 
+    color:  #030303 ;
+    text-shadow:  #70BF5A ;
     text-shadow: -1px 0 #59AFCA, 0 1px #59AFCA, 1px 0 #59AFCA, 0 -1px #59AFCA, -1px 1px 0 #59AFCA, 1px 1px 0 #59AFCA, 1px 1px #59AFCA, 1px 1px #59AFCA, 2px 2px #59AFCA, 2px 2px #59AFCA, 2px 2px #59AFCA;
+}
+.laptop {
+    width: 10%;
+    height: 10%;
+    margin-top: 20px;
 }
 .textContainer {
     background-color: rgb(252, 247, 247);
@@ -25,7 +36,7 @@ h2 {
     margin: auto;
     padding-bottom: 10px;
     padding-top: 10px;
-    margin-top: 5%;
+    margin-top: 0%;
     border-radius: 8px;
     box-shadow: 0px 0px 5px 1px #666464;
     max-width: 500px;
@@ -55,7 +66,6 @@ label{
     border-color: rgba(107, 105, 105, 0.644);
     margin-bottom: 0%;
     width: 80%;
-    text-align: center;
     font-size: 18px;
     margin-top: 0px;
     font-family: sans-serif;
