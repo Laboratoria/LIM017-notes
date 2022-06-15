@@ -26,15 +26,22 @@ export function Register () {
         await signup(user.email, user.password)
         navigate('/login')
     } catch (error) {
-        console.log(error.code);
+        console.log(error);
         if (error.code === 'auth/invalid-email') {
             setError('Correo Inválido')
+            return
         }
         if (error.code === "auth/weak-password") {
             setError ('La contraseña debe tener como mínimo 6 carácteres')
+            return
         }
         if (error.code === "auth/email-already-in-use") {
             setError ('El correo ya esta registrado')
+            return
+        }
+        if (error.code === "auth/internal-error") {
+            setError ('Error revise los campos de registro')
+            return
         }
         /* setError(error.menssage); */
        /*  switch (error.code) {
@@ -42,8 +49,8 @@ export function Register () {
             case 'error.code === "auth/invalid-email"': setError ('Digite un correo válido'); break;
             case 'error.code === "auth/email-already-in-use"': setError ('El correo electrónico proporcionado esta siendo utilizado por otro miembro, verifica e intente de nuevo.'); break;
             default: return error.code;
-          }
-          return error.code; */
+          } */
+          return setError(error.code);
         }
     }
 
