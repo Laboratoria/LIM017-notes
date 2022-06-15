@@ -4,6 +4,7 @@ import laptop from '../../images/laptop.png';
 import { useState } from 'react';
 import { useAuth } from '../../context/authContext';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
  
 export function Register () {
     const [user, setUser] = useState ({
@@ -73,11 +74,13 @@ export function Register () {
                     <label htmlFor='password'>Contraseña<br></br>
                     <input type= 'password' id='createPassword' placeholder ='Mayor a 6 carácteres' name ='password' onChange={handleChange}/>
                     </label>
-                   {/* <p id='messagePassword'></p> */}
                     {error && <p id='messageVerificado'>{error}</p>}
                     <button id='buttonUserRegister' onChange={handleChange}> Crear Ususario</button>
                     <button id='buttonGoogle'> Iniciar con Google</button>
-                    <button id='buttonBackHome'></button>
+                    <div id='containerLink'>
+                    <Link to="/" className="linkBeginning">Volver a inicio</Link>
+                    </div>
+                    {/* <button id='buttonBackHome'></button> */}
                     </form>
                 </section>
             </section>

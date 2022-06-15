@@ -7,8 +7,11 @@ export function Welcome () {
     return <div>
         <section id="welcomePage">
         <h1 className="title-main">YUYARINAPAQ</h1>
+        <p>"El que no tiene memoria, se hace una de papel o una digital"</p>
         <img src={logoWelcome} className="logo-welcome" />
-        <Link to="/register">Ingresar</Link>
+        <div className="containerGetInto">
+        <Link to="/register" className="linkWelcome">Ingresar</Link>
+        </div>
         </section>
     </div>;
 }
