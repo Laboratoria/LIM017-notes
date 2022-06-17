@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
  
 export function Register () {
     const [user, setUser] = useState ({
-        /* name: '',*/
         email: '',
         password: '',
     });

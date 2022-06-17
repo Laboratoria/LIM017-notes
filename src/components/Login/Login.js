@@ -24,15 +24,22 @@ export function Login () {
         await login(user.email, user.password)
         navigate('/home')
     } catch (error) {
-        console.log(error.code);
+        console.log(error);
         if (error.code === 'auth/user-not-found') {
             setError('No hay usuario registrado con ese correo.')
+            return
         }
         if (error.code === "auth/wrong-password") {
             setError ('La contraseña no es válida, verifica e intente de nuevo.')
+            return
         }
         if (error.code === "auth/invalid-email") {
             setError ('El correo ingresado es inválido')
+            return
+        }
+        if (error.code === "auth/internal-error") {
+            setError ('Error revise los campos de registro')
+            return
         }
         /* setError(error.menssage); */
        /*  switch (error.code) {
@@ -40,8 +47,8 @@ export function Login () {
             case 'error.code === "auth/invalid-email"': setError ('Digite un correo válido'); break;
             case 'error.code === "auth/email-already-in-use"': setError ('El correo electrónico proporcionado esta siendo utilizado por otro miembro, verifica e intente de nuevo.'); break;
             default: return error.code;
-          }
-          return error.code; */
+          } */
+          return setError(error.code);
         }
     }
 
@@ -67,7 +74,7 @@ export function Login () {
                     <div id='registerLink'>
                     <p>¿No tienes cuenta? <a href='/register'><span className='link-span'><strong>Regístrate</strong></span></a></p>
                     </div>
-                    <button id='buttonBackHome' className='buttonHome'></button>
+                     <button id='buttonBackHome' className='buttonHome'></button>
                     </form>
                 </section>
             </section>
