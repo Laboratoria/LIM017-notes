@@ -33,7 +33,7 @@ p {
     width:40%;
     height:40%;
 }
-.containerGetInto {
+.containerGetInto, .containerLogin {
     width: 180px;
     height: 60px;
     cursor: pointer;
@@ -48,7 +48,7 @@ p {
     padding-top: 8px;
     padding-bottom: 0px;
 }
-.linkWelcome {
+.linkRegister, .linkLogin {
     text-align: center;
     justify-content: center;
     align-items: center;

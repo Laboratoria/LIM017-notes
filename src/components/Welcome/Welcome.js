@@ -10,7 +10,10 @@ export function Welcome () {
         <p>"El que no tiene memoria, se hace una de papel o una digital"</p>
         <img src={logoWelcome} className="logo-welcome" />
         <div className="containerGetInto">
-        <Link to="/register" className="linkWelcome">Ingresar</Link>
+        <Link to="/register" className="linkRegister">Registrarse</Link><br></br>
+        </div>
+        <div className="containerLogin">
+        <Link to="/login" className="linkLogin">Iniciar sesión</Link>
         </div>
         </section>
     </div>;
