@@ -12,7 +12,7 @@ export function Register () {
         password: '',
     });
 
-   const {signup} = useAuth ()
+   const {signup, loginWithGoogle} = useAuth ()
    const navigate = useNavigate()
    const [error, setError] = useState();
 
@@ -54,6 +54,10 @@ export function Register () {
         }
     }
 
+const handleGoogle = async () => {
+  await loginWithGoogle
+}
+
         return <div>
             <section>
                 <section id="containerTitleImage">
@@ -75,12 +79,12 @@ export function Register () {
                     </label>
                     {error && <p id='messageVerificado'>{error}</p>}
                     <button id='buttonUserRegister' onChange={handleChange}> Crear Ususario</button>
-                    <button id='buttonGoogle'> Iniciar con Google</button>
                     <div id='containerLink'>
                     <Link to="/" className="linkBeginning">Volver a inicio</Link>
                     </div>
                     {/* <button id='buttonBackHome'></button> */}
                     </form>
+                    <button onClick={handleGoogle} id='buttonGoogle'> Iniciar con Google</button>
                 </section>
             </section>
             </div>;
