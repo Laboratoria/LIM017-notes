@@ -12,7 +12,7 @@ export function Register () {
         password: '',
     });
 
-   const {signup, loginWithGoogle} = useAuth ()
+   const {signup} = useAuth ()
    const navigate = useNavigate()
    const [error, setError] = useState();
 
@@ -54,10 +54,6 @@ export function Register () {
         }
     }
 
-const handleGoogle = async () => {
-  await loginWithGoogle
-}
-
         return <div>
             <section>
                 <section id="containerTitleImage">
@@ -84,7 +80,6 @@ const handleGoogle = async () => {
                     </div>
                     {/* <button id='buttonBackHome'></button> */}
                     </form>
-                    <button onClick={handleGoogle} id='buttonGoogle'> Iniciar con Google</button>
                 </section>
             </section>
             </div>;
