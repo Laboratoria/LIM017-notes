@@ -20,3 +20,19 @@ test('renders YUYARINAPAQ', () => {
     const linkElement = screen.getByText(/YUYARINAPAQ/i);
     expect(linkElement).toBeInTheDocument();
   });
+
+
+  test('Login Component', async () => {
+    const history = createMemoryHistory();
+    render(
+      <AuthProvider>
+        <Router location={history.location} navigator={history}>
+        <Login />
+        </Router>
+      </AuthProvider>
+     );
+    const emailInput =  screen.getByTestId('createEmail');
+    const passwordInput =  screen.getByTestId('createPassword');
+    expect(emailInput).toBeInTheDocument();
+    expect(passwordInput).toBeInTheDocument();
+  })

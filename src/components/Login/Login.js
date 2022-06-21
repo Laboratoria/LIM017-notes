@@ -66,17 +66,17 @@ export function Login () {
             <section>
                 <section id="containerTitleImage">
                     <h2 className="titleMain">YUYARINAPAQ</h2>
-                    <img src={laptop} className="laptop" />
+                    <img src={laptop} className="laptop" alt="" />
                 </section>
                 <section className="textContainer">
                     <h3 className="textLogin">Login</h3>
                     <form onSubmit={handleSubmit}>
                     <label htmlFor='email'>Email<br></br>
-                    <input type='email' id='createEmail' placeholder ='elichil@example.com' name ='email' onChange={handleChange} />
+                    <input type='email' data-testid="createEmail" placeholder ='elichil@example.com' name ='email' onChange={handleChange} />
                     </label>
                     <p id='messageEmail'></p><br></br>
                     <label htmlFor='password'>Contraseña<br></br>
-                    <input type= 'password' id='createPassword' placeholder ='Mayor a 6 carácteres' name ='password' onChange={handleChange}/>
+                    <input type= 'password' data-testid="createPassword" placeholder ='Mayor a 6 carácteres' name ='password' onChange={handleChange}/>
                     </label>
                    {/* <p id='messagePassword'></p> */}
                     {error && <p id='messageVerificado'>{error}</p>}
