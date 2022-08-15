@@ -14,8 +14,8 @@ export function Login () {
         </div>
         <button className='btnLogin'>Ingresar</button>
         <div className='infoForgotOrRegisterEmail'>
-        ¿Te olvidaste de tu cuenta? Ingresa <a href='#'>aquí</a><br/>
-        ¿Aún no te registras? Házlo <a href='#'>aquí</a><br/>
+        ¿Te olvidaste de tu cuenta? <a href='#'> Ingresa aquí</a><br/>
+        ¿Aún no te registras? <a href='#'> Házlo aquí</a><br/>
         O conéctate con:<br/>
         <div className='containerLogosGmailFacebook'>
         <img className='img' src={require('../img/gmail.png')}/>
