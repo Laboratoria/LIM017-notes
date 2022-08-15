@@ -1,0 +1,38 @@
+.container{
+    display: flex;
+    margin-top: 40px;
+    min-width: 50%;
+    width: calc((50em - 100%) * 1000);
+    border-radius: 20px;
+    height: 33em;
+    max-width: 100%;
+    background-color: #F7A82F;
+    text-align: center;
+    box-shadow: #6C6868 13px 13px ;
+}
+
+.container-elements{
+      flex-direction: column;
+     
+}
+.img{
+    padding: 40px;
+    width: 35%;
+}
+.input{
+    width: 30em;
+    height: 3em;
+    border-radius: 10px;
+    border-width:2px;
+    border-color: #000;
+    margin: 10px;
+}
+.btnLogin{
+    width: 30em;
+    height: 4em;
+    background-color: #F13765;
+    border-radius: 10px;
+    color: #fff;
+    border-width:2px;
+    border-color: #000;
+}
