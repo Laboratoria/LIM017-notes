@@ -5,9 +5,8 @@ import {Link} from 'react-router-dom'
 export const Login = ()=>{
     return(
         <div>
-            <Link to='/Mesero'>Mesero</Link> <br></br>
-            <Link to='/Chef'>Chef</Link> <br></br>
-            <Link to='/Admin'>Admin</Link>
+            <Link to='/Mesero'>Login</Link> <br></br>
+           
         </div>
     )
 }
