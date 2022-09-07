@@ -1,15 +1,25 @@
-import Login from './components/Login/LoginIn.js';
-
+import React from "react";
 import {BrowserRouter,Route,Routes,} from 'react-router-dom';
+import Login from './components/EnterApp/Login/Login.js';
+import Register from './components/EnterApp/Register/Register.js';
 
 function App() {
-  return (
+/*  return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login/>}/>
       </Routes>
     </BrowserRouter>
-  );
+  );*/
+
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
 export default App;
