@@ -15,8 +15,8 @@ const Login =() => {
 
   const handleSubmission = () => {
 
-    if (!email || !password) {
-      setErrorMesage("Ingrese datos correctos");
+    if (!email || !password ) {
+      setErrorMesage("Campos vacios");
       return;
     }
     setErrorMesage("");
@@ -25,12 +25,11 @@ const Login =() => {
     signInWithEmailAndPassword(auth, email, password)
       .then(async (res) => {
         setSubmitButtonDisabled(false);
-        
-        navigate("/register");
+        navigate("/home");
       })
       .catch((err) => {
         setSubmitButtonDisabled(false);
-        setErrorMesage(err.message);
+        setErrorMesage("Ingrese datos correctos");
       });
   };
 

@@ -4,118 +4,91 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore";
 import {db} from "../../../firebase/connection.js"
 import { auth } from "../../../firebase/connection.js";
+import arcoIris from "../../Assets/arcoIris.png"
+
+import "./Style.css"
 
 const Register = () => {
 
   const navigate = useNavigate();
-
   const usersCollectionRef = collection(db,"usuarios");
   const [name, setName] = useState([""]);
   const [email, setEmail] = useState([""]);
   const [password, SetPassword] = useState([""]);
-  /*const [values, setValues] = useState({
-    name: "",
-    email: "",
-    pass: "",
-  });*/
-  const [errorMsg, setErrorMsg] = useState("");
+  const [errorMesage, setErrorMesage] = useState("");
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
 
   const handleSubmission = () => {
     if (!name || !email || !password) {
-      setErrorMsg("datos vacios");
+      setErrorMesage("Ingrese datos ");
       return;
     }
-    setErrorMsg("");
+    setErrorMesage("");
   
-
     setSubmitButtonDisabled(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then(async (res) => {
         ///////
         try {
-
-
           const register = addDoc(usersCollectionRef, {
-            /* eslint-disable  object-shorthand */
             name: name,
             email: email,
-            
           });
-          navigate("/");
           console.log(register);
-          // eslint-disable-next-line
-
-          ////////////////////
-      /*    setSubmitButtonDisabled(false);
-        const user = res.user;
-        await updateProfile(user, {
-          displayName: name,
-        });
-        navigate("/");*/
- 
+          
         } catch (e) {
           console.error('Error, no se pudo registrar ', e);
         }
-        
-        ///////
-      /*  setSubmitButtonDisabled(false);
-        const user = res.user;
-        await updateProfile(user, {
-          displayName: name,
-        });
-        navigate("/");*/
-      
+
+       setSubmitButtonDisabled(false);
+        navigate("/");
       })
       .catch((err) => {
         setSubmitButtonDisabled(false);
-        setErrorMsg(err.message);
+        setErrorMesage("Ingrese datos validos");
       });
   };
 
   return (
-    <div >
-      <div >
-        <h1 >registrate</h1>
+    <div>
+      <div className="ContainerRegisterView">
+      <img className="ContainerRegisterImage" src={arcoIris} ></img>
+      <h1 className="StyleRegisterTitle">Registrarse</h1>
 
-        <input
+      <div>
+        <h3 className="StyleRegisterText">Ingresar Nombre</h3>
+        <input className="StyleRegisterInput"
           label="Name"
-          placeholder="Enter your name"
-          value={name}
           onChange={(event) =>
-            setName(event.target.value)
-          }
-        />
-        <input
-          label="Email"
-          placeholder="Enter email address"
-          value={email}
-          onChange={(event) =>
-            setEmail(event.target.value)
-          }
-        />
-        <input
-          label="Password"
-          placeholder="Enter password"
-          value={password}
-          onChange={(event) =>
-            SetPassword(event.target.value)
-          }
+            setName(event.target.value)}
         />
 
-        <div >
-          <b>{errorMsg}</b>
-   
-          <button onClick={handleSubmission} disabled={submitButtonDisabled}>
-            Signup
+        <h3 className="StyleRegisterText">Ingresar Correo</h3>
+        <input className="StyleRegisterInput"
+          label="Email"
+          onChange={(event) =>
+            setEmail(event.target.value)}
+        />
+
+        <h3 className="StyleRegisterText">Ingresar Contraseña</h3>
+        <input className="StyleRegisterInput"
+          label="Password"
+          onChange={(event) =>
+            SetPassword(event.target.value)}
+        />
+
+      </div>
+
+      <div>
+        <p className="StyleRegisterErrorMesage">{errorMesage}</p>
+          <button className="StyleRegisterButton" disabled={submitButtonDisabled} onClick={handleSubmission}>
+            Registrar
           </button>
-          <p>
-            Already have an account?{" "}
-            <span>
-              <Link to="/home">Login</Link>
-            </span>
-          </p>
-        </div>
+          <br/>
+           <p className="StyleLogin">
+            <Link to="/" className="StyleLogin">Iniciar Secion</Link>
+           </p>
+      </div>
       </div>
     </div>
   );
