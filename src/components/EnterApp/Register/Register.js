@@ -18,6 +18,14 @@ const Register = () => {
   const [errorMesage, setErrorMesage] = useState("");
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
 
+  //mostrar y ocultar contraseña
+  const [passwordShown, setPasswordShown] = useState(false);
+  //funcion del boton ocultar y mostrar
+  const hideShowPassword = () => {
+    setPasswordShown(!passwordShown);
+  };
+  //
+
   const handleSubmission = () => {
     if (!name || !email || !password) {
       setErrorMesage("Ingrese datos ");
@@ -71,11 +79,15 @@ const Register = () => {
         />
 
         <h3 className="StyleRegisterText">Ingresar Contraseña</h3>
-        <input className="StyleRegisterInput"
+        <input className="StyleRegisterInputPassword"
+          type={passwordShown ? "text" : "password"}
           label="Password"
           onChange={(event) =>
             SetPassword(event.target.value)}
         />
+         <button className="StyleButtonPassword" onClick={hideShowPassword}>
+            {passwordShown ? 'Ocultar':'Mostrar'} 
+          </button>
 
       </div>
 

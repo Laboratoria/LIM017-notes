@@ -13,8 +13,15 @@ const Login =() => {
   const [errorMesage, setErrorMesage] = useState("");
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
 
-  const handleSubmission = () => {
+  //mostrar y ocultar contraseña
+  const [passwordShown, setPasswordShown] = useState(false);
+  //funcion del boton ocultar y mostrar
+  const hideShowPassword = () => {
+    setPasswordShown(!passwordShown);
+  };
+  //
 
+  const handleSubmission = () => {
     if (!email || !password ) {
       setErrorMesage("Campos vacios");
       return;
@@ -48,11 +55,15 @@ const Login =() => {
           }/>
 
          <h3 className="StyleText">Contraseña</h3>
-        <input className="StyleInput"
+        <input className="StyleInputPassword"
+          type={passwordShown ? "text" : "password"}
           label="Password"
           onChange={(event) =>
             setPassword(event.target.value)
           } />
+          <button className="StyleButtonPassword" onClick={hideShowPassword}>
+            {passwordShown ? 'Ocultar':'Mostrar'} 
+          </button>
         </div>
 
         <div>
