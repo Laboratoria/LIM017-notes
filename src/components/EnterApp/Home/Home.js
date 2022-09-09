@@ -11,7 +11,7 @@ const Home =() => {
     
     <div>
          <Header/>
-      <div >
+      <div className="ContainerView">
      
         <img className="ContainerImage" src={arcoIris} ></img>
         <h1 className="StyleTitle">Lab Notes</h1>
