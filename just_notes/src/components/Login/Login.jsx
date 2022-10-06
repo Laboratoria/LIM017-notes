@@ -1,10 +1,17 @@
+import { useNavigate } from 'react-router-dom';
+import { Header } from '../Header/Header';
+import { Button } from '../Button/Button';
 import styles from './Login.module.css';
 
 export function Login () {
+    const navigate = useNavigate();
+    const register = () => {
+        navigate('/register')
+    }
     return (
         <div className={styles.container}>
         <div className={styles.containerElements}>
-        <img className={styles.img} src={require('../../img/logo.png')}/>
+        <Header />
         <article className={styles.article}>
         <div className={styles.infoEmail}>
         <label>Correo electrónico</label><input type='text' id='email' className={styles.input} /><br/>
@@ -12,15 +19,13 @@ export function Login () {
         <div className={styles.infoPassword}>
         <label>Contraseña</label><input type='password' id='password' className={styles.input}/><br/>
         </div>
-        <div className={styles.divBtnLogin}>
-        <button className={styles.btnLogin}>Ingresar</button>
-        </div>
+        <Button />
         <div className={styles.infoForgotOrRegisterEmail}>
         <p className={styles.spanInfo}>
         ¿Te olvidaste de tu cuenta? <a href='#' className={styles.aForgotRegister}> Ingresa aquí</a><br/>
         </p>
         <p className={styles.spanInfo}>
-        ¿Aún no te registras? <a href='#' className={styles.aForgotRegister}> Házlo aquí</a><br/>
+        ¿Aún no te registras? <a href='#' className={styles.aForgotRegister} onclick={register()}> Házlo aquí</a><br/>
         </p>
         <p className={styles.spaninfo}>
         O conéctate con:<br/>

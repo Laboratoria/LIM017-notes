@@ -37,32 +37,22 @@
     font-family: 'Inter', sans-serif;
 }
 
-.infoForgotOrRegisterEmail{
-    margin: 20px;
-    font-size: 15px;
-}
-
-.aForgotRegister{
-    color: #27213B;
-    font-weight: bold;
+.infoUser{
+    margin-left: 83px;
 }
 
 .infoPassword{
-    margin-left: 53px;
-    margin-bottom: 10px;
+    margin-left: 55px;
 }
 
-.spanInfo{
-    margin:5px;
+.repeatPassword{
+    margin-left: -15px;
 }
 
-.containerLogosGmailFacebook img{
-    padding: 20px 40px 20px;
-    width: 70px;
-    cursor:pointer;
-    margin-top: -5px;
+.pClick{
+    margin: 20px;
 }
-
-.containerLogosGmailFacebook img:hover{
-    filter: saturate(180%);
+.aLogin{
+    color: #27213B;
+    font-weight: bold;
 }
